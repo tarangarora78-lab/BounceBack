@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/bird.gd" id="1_bird_script"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bird"]
+radius = 24.0
+
+[node name="Bird" type="Area2D"]
+process_mode = 1
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("1_bird_script")
+
+[node name="Art" type="Node2D" parent="."]
+
+[node name="BodyOutline" type="Polygon2D" parent="Art"]
+color = Color(0.055, 0.11, 0.18, 1)
+polygon = PackedVector2Array(-21, -2, -15, -11, -2, -15, 13, -10, 21, -2, 24, 0, 13, 5, 5, 11, -8, 10, -19, 5)
+
+[node name="Body" type="Polygon2D" parent="Art"]
+color = Color(0.97, 0.72, 0.25, 1)
+polygon = PackedVector2Array(-15, -2, -11, -8, -1, -11, 10, -7, 15, -1, 17, 0, 9, 4, 3, 8, -7, 7, -14, 3)
+
+[node name="LeftWing" type="Polygon2D" parent="Art"]
+position = Vector2(-7, -3)
+color = Color(0.12, 0.25, 0.35, 1)
+polygon = PackedVector2Array(0, 0, -20, -13, -16, 2, -8, 9)
+
+[node name="RightWing" type="Polygon2D" parent="Art"]
+position = Vector2(7, -3)
+color = Color(0.12, 0.25, 0.35, 1)
+polygon = PackedVector2Array(0, 0, 20, -13, 16, 2, 8, 9)
+
+[node name="Eye" type="Polygon2D" parent="Art"]
+position = Vector2(5, -4)
+color = Color(0.99, 0.97, 0.87, 1)
+polygon = PackedVector2Array(-3, -4, 1, -5, 4, -2, 3, 2, 0, 4, -3, 1)
+
+[node name="Pupil" type="Polygon2D" parent="Art"]
+position = Vector2(6, -4)
+color = Color(0.055, 0.11, 0.18, 1)
+polygon = PackedVector2Array(-1, -2, 1, -2, 2, 0, 1, 2, -1, 2, -2, 0)
+
+[node name="Beak" type="Polygon2D" parent="Art"]
+position = Vector2(20, 0)
+color = Color(0.91, 0.38, 0.2, 1)
+polygon = PackedVector2Array(0, -3, 8, 0, 0, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bird")

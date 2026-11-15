@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/sofa.gd" id="1_sofa_script"]
+[ext_resource type="Texture2D" path="res://assets/sofa/sofa.png" id="2_sofa_texture"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sofa"]
+size = Vector2(180, 32)
+
+[node name="Sofa" type="StaticBody2D" groups=["sofas"]]
+process_mode = 1
+script = ExtResource("1_sofa_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = ExtResource("2_sofa_texture")
+scale = Vector2(0.22, 0.22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sofa")

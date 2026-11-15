@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/environment/cloud.tscn" id="1_cloud"]
+[ext_resource type="PackedScene" path="res://assets/environment/sun.tscn" id="2_sun"]
+
+[node name="Environment" type="Node2D"]
+
+[node name="SkyBackground" type="ColorRect" parent="."]
+z_index = -100
+offset_left = -1000.0
+offset_top = -1600.0
+offset_right = 8000.0
+offset_bottom = 2200.0
+color = Color(0.38, 0.73, 0.96, 1)
+
+[node name="Sun" parent="." instance=ExtResource("2_sun")]
+
+[node name="Cloud01" parent="." instance=ExtResource("1_cloud")]
+position = Vector2(80, 300)
+scale = Vector2(1.15, 1.15)
+
+[node name="Cloud02" parent="." instance=ExtResource("1_cloud")]
+position = Vector2(820, 180)
+
+[node name="Cloud03" parent="." instance=ExtResource("1_cloud")]
+position = Vector2(1450, 340)
+scale = Vector2(0.85, 0.85)
+
+[node name="Cloud04" parent="." instance=ExtResource("1_cloud")]
+position = Vector2(2150, 220)
+scale = Vector2(1.2, 1.2)
+
+[node name="Cloud05" parent="." instance=ExtResource("1_cloud")]
+position = Vector2(2850, 120)
+
+[node name="Cloud06" parent="." instance=ExtResource("1_cloud")]
+position = Vector2(3500, 320)
+scale = Vector2(0.9, 0.9)
+
+[node name="Cloud07" parent="." instance=ExtResource("1_cloud")]
+position = Vector2(4200, 180)
+scale = Vector2(1.2, 1.2)
+
+[node name="Cloud08" parent="." instance=ExtResource("1_cloud")]
+position = Vector2(4900, 320)
+
+[node name="Cloud09" parent="." instance=ExtResource("1_cloud")]
+position = Vector2(5550, 145)
+scale = Vector2(0.9, 0.9)
+
+[node name="Cloud10" parent="." instance=ExtResource("1_cloud")]
+position = Vector2(6250, 290)
+scale = Vector2(1.15, 1.15)

@@ -1,0 +1,638 @@
+[gd_scene format=3 uid="uid://b7hvubl7pfxnc"]
+
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://w3ls7adsi3p2" path="res://scenes/main.gd" id="2_main"]
+[ext_resource type="PackedScene" path="res://scenes/sofa.tscn" id="3_sofa"]
+[ext_resource type="PackedScene" path="res://assets/environment/sky.tscn" id="4_environment"]
+[ext_resource type="PackedScene" path="res://scenes/spike_row.tscn" id="5_spike_row"]
+[ext_resource type="Texture2D" uid="uid://b1kfngdobxgej" path="res://assets/goal/door.png" id="6_goal_door"]
+[ext_resource type="Texture2D" uid="uid://dfh78g0k83fmg" path="res://assets/collectibles/coin.png" id="7_coin_icon"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(7000, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_goal"]
+size = Vector2(140, 224)
+
+[node name="Main" type="Node2D" unique_id=1310738475]
+process_mode = 3
+script = ExtResource("2_main")
+
+[node name="Environment" parent="." unique_id=1665806042 instance=ExtResource("4_environment")]
+
+[node name="Player" parent="." unique_id=2080741232 instance=ExtResource("1_player")]
+process_mode = 1
+position = Vector2(400, 500)
+
+[node name="Sofa01" parent="." unique_id=1452614291 instance=ExtResource("3_sofa")]
+position = Vector2(400, 560)
+
+[node name="Sofa02" parent="." unique_id=1473663362 instance=ExtResource("3_sofa")]
+position = Vector2(700, 520)
+
+[node name="Sofa03" parent="." unique_id=1568406905 instance=ExtResource("3_sofa")]
+position = Vector2(1000, 580)
+
+[node name="Sofa04" parent="." unique_id=228215128 instance=ExtResource("3_sofa")]
+position = Vector2(1300, 500)
+
+[node name="Sofa05" parent="." unique_id=103777850 instance=ExtResource("3_sofa")]
+position = Vector2(1600, 550)
+
+[node name="Sofa06" parent="." unique_id=742761514 instance=ExtResource("3_sofa")]
+position = Vector2(1900, 470)
+
+[node name="Sofa07" parent="." unique_id=950868620 instance=ExtResource("3_sofa")]
+position = Vector2(2200, 540)
+
+[node name="Sofa08" parent="." unique_id=1515209196 instance=ExtResource("3_sofa")]
+position = Vector2(2500, 490)
+
+[node name="Sofa09" parent="." unique_id=1439351212 instance=ExtResource("3_sofa")]
+position = Vector2(2800, 570)
+
+[node name="Sofa10" parent="." unique_id=1995189062 instance=ExtResource("3_sofa")]
+position = Vector2(3100, 500)
+
+[node name="Sofa11" parent="." unique_id=1506511088 instance=ExtResource("3_sofa")]
+position = Vector2(3400, 440)
+
+[node name="Sofa12" parent="." unique_id=1998059261 instance=ExtResource("3_sofa")]
+position = Vector2(3700, 530)
+
+[node name="Sofa13" parent="." unique_id=485912627 instance=ExtResource("3_sofa")]
+position = Vector2(4000, 480)
+
+[node name="Sofa14" parent="." unique_id=709794042 instance=ExtResource("3_sofa")]
+position = Vector2(4300, 560)
+
+[node name="Sofa15" parent="." unique_id=1711638152 instance=ExtResource("3_sofa")]
+position = Vector2(4600, 500)
+
+[node name="Sofa16" parent="." unique_id=1249852719 instance=ExtResource("3_sofa")]
+position = Vector2(4900, 430)
+
+[node name="Sofa17" parent="." unique_id=1187777794 instance=ExtResource("3_sofa")]
+position = Vector2(5200, 520)
+
+[node name="Sofa18" parent="." unique_id=417848647 instance=ExtResource("3_sofa")]
+position = Vector2(5500, 470)
+
+[node name="Sofa19" parent="." unique_id=965968945 instance=ExtResource("3_sofa")]
+position = Vector2(5800, 540)
+
+[node name="Sofa20" parent="." unique_id=422358122 instance=ExtResource("3_sofa")]
+position = Vector2(6100, 490)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1101275310]
+position = Vector2(3500, 700)
+
+[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=1932107022]
+z_index = -2
+offset_left = -3500.0
+offset_top = -20.0
+offset_right = 3500.0
+offset_bottom = 20.0
+color = Color(0.037796043, 0.53392404, 6.7383053e-06, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1745231361]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="SpikeRow" parent="." unique_id=745352918 instance=ExtResource("5_spike_row")]
+z_index = -1
+position = Vector2(3500, 680)
+
+[node name="Goal" type="Area2D" parent="." unique_id=714399989]
+position = Vector2(4900, 470)
+
+[node name="DoorSprite" type="Sprite2D" parent="Goal" unique_id=1351596191]
+position = Vector2(0, -102)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("6_goal_door")
+
+[node name="DoorOpening" type="Polygon2D" parent="Goal" unique_id=1866692101]
+visible = false
+z_index = 1
+position = Vector2(0, -102)
+color = Color(0.055, 0.018, 0.075, 1)
+polygon = PackedVector2Array(-38, 90, -45, -45, -40, -65, -25, -80, 0, -88, 25, -80, 40, -65, 45, -45, 38, 90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" unique_id=910629574]
+position = Vector2(0, -102)
+shape = SubResource("RectangleShape2D_goal")
+
+[node name="DeathScreen" type="CanvasLayer" parent="." unique_id=148995266]
+layer = 10
+visible = false
+
+[node name="Backdrop" type="ColorRect" parent="DeathScreen" unique_id=2027947933]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.012, 0.045, 0.075, 0.82)
+
+[node name="Card" type="Panel" parent="DeathScreen" unique_id=1917011426]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -175.0
+offset_right = 270.0
+offset_bottom = 175.0
+
+[node name="CenterContainer" type="CenterContainer" parent="DeathScreen" unique_id=689269395]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeathScreen/CenterContainer" unique_id=342060158]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="DeathScreen/CenterContainer/VBoxContainer" unique_id=1062091305]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "OOPS!"
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="DeathScreen/CenterContainer/VBoxContainer" unique_id=104315961]
+layout_mode = 2
+text = "Respawning at your last sofa..."
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="DeathScreen/CenterContainer/VBoxContainer" unique_id=1356312592]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Respawn Now"
+
+[node name="WinScreen" type="CanvasLayer" parent="." unique_id=210204572]
+layer = 10
+visible = false
+
+[node name="Backdrop" type="ColorRect" parent="WinScreen" unique_id=218128725]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.012, 0.045, 0.075, 0.82)
+
+[node name="Card" type="Panel" parent="WinScreen" unique_id=1999541280]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -225.0
+offset_right = 270.0
+offset_bottom = 225.0
+
+[node name="CenterContainer" type="CenterContainer" parent="WinScreen" unique_id=462548144]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinScreen/CenterContainer" unique_id=388687799]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="WinScreen/CenterContainer/VBoxContainer" unique_id=1921055443]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "YOU WIN!"
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="WinScreen/CenterContainer/VBoxContainer" unique_id=1681652104]
+layout_mode = 2
+text = "You reached the finish!"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="WinScreen/CenterContainer/VBoxContainer" unique_id=1719433070]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Play Again"
+
+[node name="MenuButton" type="Button" parent="WinScreen/CenterContainer/VBoxContainer" unique_id=532192979]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Menu"
+
+[node name="QuitButton" type="Button" parent="WinScreen/CenterContainer/VBoxContainer" unique_id=1231500035]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Quit"
+
+[node name="LevelMenu" type="CanvasLayer" parent="." unique_id=393378294]
+layer = 20
+visible = false
+
+[node name="Backdrop" type="ColorRect" parent="LevelMenu" unique_id=1975155558]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.012, 0.045, 0.075, 0.78)
+
+[node name="Card" type="Panel" parent="LevelMenu" unique_id=582879282]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -330.0
+offset_right = 440.0
+offset_bottom = 330.0
+
+[node name="CenterContainer" type="CenterContainer" parent="LevelMenu" unique_id=1509823564]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelMenu/CenterContainer" unique_id=683347617]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Title" type="Label" parent="LevelMenu/CenterContainer/VBoxContainer" unique_id=1133809622]
+layout_mode = 2
+theme_override_font_sizes/font_size = 58
+text = "SOFA HOP"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="LevelMenu/CenterContainer/VBoxContainer" unique_id=1908522174]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Choose your character, theme, and level"
+horizontal_alignment = 1
+
+[node name="HelpText" type="Label" parent="LevelMenu/CenterContainer/VBoxContainer" unique_id=1210856608]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "MOVE  A / D OR ARROWS     |     SPACE: TANJIRO DASH / GOJO DOMAIN     |     PAUSE  ESC"
+horizontal_alignment = 1
+
+[node name="MenuColumns" type="HBoxContainer" parent="LevelMenu/CenterContainer/VBoxContainer" unique_id=133760004]
+layout_mode = 2
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="OptionsColumn" type="VBoxContainer" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns" unique_id=502937814]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="CharacterTitle" type="Label" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn" unique_id=1978741439]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "CHARACTER"
+horizontal_alignment = 1
+
+[node name="CharacterOptions" type="HBoxContainer" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn" unique_id=1235334496]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="PenguinButton" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn/CharacterOptions" unique_id=819976696]
+custom_minimum_size = Vector2(112, 48)
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "PENGUIN"
+
+[node name="TanjiroButton" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn/CharacterOptions" unique_id=667118652]
+custom_minimum_size = Vector2(112, 48)
+layout_mode = 2
+toggle_mode = true
+text = "TANJIRO"
+
+[node name="GojoButton" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn/CharacterOptions" unique_id=1685587550]
+custom_minimum_size = Vector2(112, 48)
+layout_mode = 2
+toggle_mode = true
+text = "GOJO"
+
+[node name="ThemeTitle" type="Label" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn" unique_id=926245161]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "THEME"
+horizontal_alignment = 1
+
+[node name="ThemeButtons" type="VBoxContainer" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn" unique_id=1284858352]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LivingRoomButton" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn/ThemeButtons" unique_id=1415332445]
+custom_minimum_size = Vector2(260, 44)
+layout_mode = 2
+text = "LIVING ROOM"
+
+[node name="SelectedCoin" type="TextureRect" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn/ThemeButtons/LivingRoomButton" unique_id=1012655941]
+visible = false
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -28.0
+offset_top = 5.0
+offset_right = -7.0
+offset_bottom = 26.0
+mouse_filter = 2
+texture = ExtResource("7_coin_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RooftopButton" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn/ThemeButtons" unique_id=1343779001]
+custom_minimum_size = Vector2(260, 44)
+layout_mode = 2
+text = "ROOFTOP"
+
+[node name="SelectedCoin" type="TextureRect" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn/ThemeButtons/RooftopButton" unique_id=2035369177]
+visible = false
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -28.0
+offset_top = 5.0
+offset_right = -7.0
+offset_bottom = 26.0
+mouse_filter = 2
+texture = ExtResource("7_coin_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SpaceButton" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn/ThemeButtons" unique_id=343235414]
+custom_minimum_size = Vector2(260, 44)
+layout_mode = 2
+text = "SPACE"
+
+[node name="SelectedCoin" type="TextureRect" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/OptionsColumn/ThemeButtons/SpaceButton" unique_id=1749155353]
+visible = false
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -28.0
+offset_top = 5.0
+offset_right = -7.0
+offset_bottom = 26.0
+mouse_filter = 2
+texture = ExtResource("7_coin_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LevelsColumn" type="VBoxContainer" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns" unique_id=1958594315]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LevelTitle" type="Label" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/LevelsColumn" unique_id=2128975976]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "CHOOSE A LEVEL"
+horizontal_alignment = 1
+
+[node name="LevelButtonGrid" type="GridContainer" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/LevelsColumn" unique_id=2040179476]
+layout_mode = 2
+theme_override_constants/h_separation = 14
+theme_override_constants/v_separation = 14
+columns = 2
+
+[node name="Level1Button" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/LevelsColumn/LevelButtonGrid" unique_id=1513652817]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+text = "LEVEL 1"
+
+[node name="Level2Button" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/LevelsColumn/LevelButtonGrid" unique_id=198881224]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+text = "LEVEL 2"
+
+[node name="Level3Button" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/LevelsColumn/LevelButtonGrid" unique_id=455252819]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+text = "LEVEL 3"
+
+[node name="Level4Button" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/LevelsColumn/LevelButtonGrid" unique_id=1733665551]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+text = "LEVEL 4"
+
+[node name="Level5Button" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/LevelsColumn/LevelButtonGrid" unique_id=2111236887]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+text = "LEVEL 5"
+
+[node name="Level6Button" type="Button" parent="LevelMenu/CenterContainer/VBoxContainer/MenuColumns/LevelsColumn/LevelButtonGrid" unique_id=2062437374]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+text = "LEVEL 6: IMPOSSIBLE"
+
+[node name="StartMenu" type="CanvasLayer" parent="." unique_id=229469765]
+layer = 25
+
+[node name="Backdrop" type="ColorRect" parent="StartMenu" unique_id=236711443]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.012, 0.045, 0.075, 0.72)
+
+[node name="Card" type="Panel" parent="StartMenu" unique_id=323365978]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -260.0
+offset_right = 340.0
+offset_bottom = 260.0
+
+[node name="CenterContainer" type="CenterContainer" parent="StartMenu" unique_id=446540761]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu/CenterContainer" unique_id=987946841]
+layout_mode = 2
+theme_override_constants/separation = 28
+
+[node name="Title" type="Label" parent="StartMenu/CenterContainer/VBoxContainer" unique_id=600389792]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.38, 1)
+theme_override_font_sizes/font_size = 64
+text = "SOFA HOP"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="StartMenu/CenterContainer/VBoxContainer" unique_id=2031909094]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Bounce high. Grab coins. Reach the door."
+horizontal_alignment = 1
+
+[node name="ControlsHint" type="Label" parent="StartMenu/CenterContainer/VBoxContainer" unique_id=1590805006]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "MOVE WITH A / D OR ARROW KEYS"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="StartMenu/CenterContainer/VBoxContainer" unique_id=237613214]
+custom_minimum_size = Vector2(260, 76)
+layout_mode = 2
+text = "PLAY"
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1533847915]
+layer = 5
+visible = false
+
+[node name="LevelPlate" type="Panel" parent="HUD" unique_id=389832261]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 190.0
+offset_bottom = 66.0
+
+[node name="LevelLabel" type="Label" parent="HUD" unique_id=1412152417]
+offset_left = 32.0
+offset_top = 26.0
+offset_right = 180.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.55, 0.91, 0.88, 1)
+theme_override_font_sizes/font_size = 22
+text = "LEVEL 1"
+
+[node name="HeartsPlate" type="Panel" parent="HUD" unique_id=483320377]
+offset_left = 20.0
+offset_top = 76.0
+offset_right = 190.0
+offset_bottom = 122.0
+
+[node name="HeartsLabel" type="Label" parent="HUD" unique_id=1231501680]
+offset_left = 32.0
+offset_top = 78.0
+offset_right = 180.0
+offset_bottom = 118.0
+theme_override_colors/font_color = Color(1, 0.36, 0.48, 1)
+theme_override_font_sizes/font_size = 20
+text = "LIVES 3 / 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinPlate" type="Panel" parent="HUD" unique_id=1865912303]
+offset_left = 1040.0
+offset_top = 20.0
+offset_right = 1260.0
+offset_bottom = 66.0
+
+[node name="CoinLabel" type="Label" parent="HUD" unique_id=1951448997]
+offset_left = 1048.0
+offset_top = 26.0
+offset_right = 1252.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 0.82, 0.38, 1)
+theme_override_font_sizes/font_size = 22
+text = "COINS 0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DashPlate" type="Panel" parent="HUD" unique_id=380938845]
+visible = false
+offset_left = 1040.0
+offset_top = 172.0
+offset_right = 1260.0
+offset_bottom = 218.0
+
+[node name="DashLabel" type="Label" parent="HUD" unique_id=994623350]
+visible = false
+offset_left = 1048.0
+offset_top = 178.0
+offset_right = 1252.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(0.55, 0.91, 0.88, 1)
+theme_override_font_sizes/font_size = 16
+text = "SPACE DASH READY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScorePlate" type="Panel" parent="HUD" unique_id=687351772]
+offset_left = 1010.0
+offset_top = 76.0
+offset_right = 1260.0
+offset_bottom = 122.0
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=1537859289]
+offset_left = 1018.0
+offset_top = 82.0
+offset_right = 1252.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0.55, 0.91, 0.88, 1)
+theme_override_font_sizes/font_size = 17
+text = "SCORE 00000   HI 00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1940590884]
+process_mode = 3
+layer = 30
+visible = false
+
+[node name="Backdrop" type="ColorRect" parent="PauseMenu" unique_id=133773502]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.012, 0.045, 0.075, 0.82)
+
+[node name="Card" type="Panel" parent="PauseMenu" unique_id=1986750298]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -215.0
+offset_right = 250.0
+offset_bottom = 215.0
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu" unique_id=480433872]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/CenterContainer" unique_id=1367004210]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Title" type="Label" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=268122840]
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=1986073182]
+custom_minimum_size = Vector2(240, 58)
+layout_mode = 2
+text = "RESUME"
+
+[node name="MenuButton" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=1069705843]
+custom_minimum_size = Vector2(240, 58)
+layout_mode = 2
+text = "BACK TO MENU"
+
+[node name="QuitButton" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer" unique_id=2020541472]
+custom_minimum_size = Vector2(240, 58)
+layout_mode = 2
+text = "QUIT"
